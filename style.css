@@ -1,0 +1,127 @@
+@import url('https://fonts.googleapis.com/css2?family=Anonymous+Pro&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  overflow: hidden;
+}
+
+header {
+  box-shadow: rgba(255, 255, 255, 0.093) 0px 0px 50px 0px inset, rgba(255, 255, 255, 0.137) 0px 18px 36px -18px inset;
+  height: 93%;
+  width: 95%;
+  padding: 2vh 2vw;
+  border: 1px solid white;
+  color: white;
+  background-image: url('bg.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  overflow: hidden;
+}
+
+header::after {
+  overflow: hidden;
+  content: "";
+  position: absolute;
+  top: -30%;
+  left: -500%;
+  width: 20%;
+  height: 200%;
+  opacity: 0;
+  transform: rotate(15deg);
+  background: rgba(255, 255, 255, 0.13);
+  background: linear-gradient( to right, rgba(255, 255, 255, 0.13) 0%, rgba(255, 255, 255, 0.13) 77%, rgba(255, 255, 255, 0.5) 92%, rgba(255, 255, 255, 0.0) 100%);
+  animation: shine 5s infinite;
+  filter: blur(10px);
+}
+
+@keyframes shine {
+  to {
+    opacity: .1;
+    left: 210%;
+  }
+}
+
+.grain-overlay {
+  position: fixed;
+  top: -50%;
+  left: -50%;
+  right: -50%;
+  bottom: -50%;
+  width: 200%;
+  height: 200vh;
+  background: transparent url('http://assets.iceable.com/img/noise-transparent.png') repeat 0 0;
+  background-repeat: repeat;
+  animation: bg-animation .2s infinite;
+  opacity: .7;
+  visibility: visible;
+}
+
+@keyframes bg-animation {
+    0% { transform: translate(0,0) }
+    10% { transform: translate(-5%,-5%) }
+    20% { transform: translate(-10%,5%) }
+    30% { transform: translate(5%,-10%) }
+    40% { transform: translate(-5%,15%) }
+    50% { transform: translate(-10%,5%) }
+    60% { transform: translate(15%,0) }
+    70% { transform: translate(0,10%) }
+    80% { transform: translate(-15%,0) }
+    90% { transform: translate(10%,5%) }
+    100% { transform: translate(5%,0) }
+}
+
+hgroup {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+hgroup h2 {
+  font-size: 50px;
+  font-weight: 500;
+}
+
+hgroup p {
+  font-family: 'Anonymous Pro', monospace;
+  font-size: 22px;
+  letter-spacing: 6.8px;
+}
+
+h1 {
+  font-size: 90px;
+  letter-spacing: 2px;
+}
+
+h1 span {
+  background: linear-gradient(
+    to right,
+    #00AE71 20%,
+    #009B80 30%,
+    #008685 70%,
+    #00717F 80%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-fill-color: transparent;
+  background-size: 500% auto;
+  animation: textShine 3s ease-in-out infinite alternate;
+}
+
+@keyframes textShine {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
+}
