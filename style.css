@@ -62,7 +62,7 @@ header::after {
   background: transparent url('https://sybrax.dev/noise.png') repeat 0 0;
   background-repeat: repeat;
   animation: bg-animation .3s infinite;
-  opacity: .08;
+  opacity: .035;
   visibility: visible;
 }
 
@@ -75,6 +75,7 @@ header::after {
   color: white;
   font-size: 14px;
   letter-spacing: 3px;
+  font-weight: 600;
 }
 
 .outside::after {
@@ -98,7 +99,7 @@ header::after {
 .outside span {
   font-size: 15px;
   font-family: 'Anonymous Pro';
-  font-weight: 600;
+  font-weight: 500;
 }
 
 hgroup {
@@ -253,7 +254,8 @@ ul a:hover::after {
   position: absolute;
   border-radius: 50%;
   box-shadow: 0 0 20px rgba(16, 0, 54, 0.2);
-  animation: rotate 8s linear infinite;
+  animation: rotate linear infinite;
+  animation-duration: 8s;
 }
 
 #desc {
@@ -266,18 +268,22 @@ ul a:hover::after {
   animation: caretAnim 1s infinite;
 }
 
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
 
-@keyframes caretAnim {
+/* @keyframes caretAnim {
   0%, 100% {
     border-right: 2px white solid;
   }
   50% {
     border-right: 2px rgba(255, 255, 255, 0) solid;
   }
-}
-
-@keyframes rotate{
-  to{ transform: rotate(1turn); }
 }
 
 @keyframes lightshadow {
@@ -317,4 +323,4 @@ ul a:hover::after {
   80% { transform: translate(-15%,0) }
   90% { transform: translate(10%,5%) }
   100% { transform: translate(5%,0) }
-}
+} */
