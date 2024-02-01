@@ -27,7 +27,7 @@ main {
   padding: 2vh 2vh 2vh 4vw;
   border: 1px solid white;
   color: white;
-  background-image: url('bg.png');
+  background-image: url('/public/bg.png');
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -265,7 +265,7 @@ h1 span {
   z-index: 5;
   width: 5em;
   height: 5em;
-  background-image: url(cursor.png);
+  background-image: url('/public/cursor.png');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
