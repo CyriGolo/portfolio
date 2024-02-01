@@ -143,10 +143,13 @@ aside {
 .block {
   z-index: 2;
   position: relative;
-  border-radius: 10px;
-  border: 1px black solid;
   padding: 20px;
-  background-color: rgba(151, 151, 151, 0.041);
+  background: rgba( 255, 255, 255, 0.05 );
+  box-shadow: 0 8px 32px 0 rgba(255, 255, 255, 0.041);
+  backdrop-filter: blur( 2px );
+  -webkit-backdrop-filter: blur( 5px );
+  border-radius: 10px;
+  border: 1px solid rgba( 255, 255, 255, 0.18 );
   line-height: 35px;
 }
 
