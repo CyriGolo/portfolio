@@ -1,3 +1,5 @@
+let desc;
+let circle;
 let sentence =
 ["[A young french developer]", 
 "[HTML, JS, CSS]",
@@ -7,6 +9,7 @@ document.addEventListener("DOMContentLoaded", function() {
     setTimeout(() => {
         typing("[A young french developer]", 100)
     }, 2000);
+    desc = document.querySelector('#desc');
     const url = document.querySelector('.url');
     const picture = document.querySelector('.picture');
     url.addEventListener("mouseover", function() {
@@ -17,10 +20,9 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 });
 
-let circle = document.querySelector('.circle');
-circle.style.animationDuration = '8s';
-
 function moveCircle(e) {
+    circle = document.querySelector('.circle');
+    circle.style.animationDuration = '8s';
     let posX = (e.pageX - 30)  + 'px';
     let posY = (e.pageY - 25) + 'px';
     circle.style.left = posX;
@@ -48,8 +50,6 @@ document.addEventListener('wheel', (e) => {
 });
 
 window.addEventListener('mousemove', moveCircle);
-
-let desc = document.querySelector('#desc');
 
 function typing(txt, speed){
     let i = 0;
