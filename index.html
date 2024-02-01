@@ -3,35 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
+    <title>Cyri - Web Developer</title>
     <link rel="stylesheet" href="style.css">
     <script src="main.js" defer async></script>
 </head>
 <body>
   <p class="outside"><span>DESIGN</span> & <span>DEVELOP</span> BY ME</p>
-  <header>
+  <main>
     <div class="circle"></div>
     <div class="grain-overlay"></div>
-    <hgroup>
+    <article class="left">
       <h2>Hi &#128075; -</h2>
       <h1>I'm&nbsp;<span>Cyri</span>.</h1>
       <p id="desc" class="anime"></p>
-    </hgroup>
+    </article>
     <ul class="link">
       <li>
-        <a href="https://github.com/CyriGolo"><img src="public/github-mark-white.svg" alt="">GITHUB</a>
+        <a href="https://github.com/CyriGolo"><img src="github-mark-white.svg" alt=""><span>GITHUB</span></a> <p>/</p>
       </li>
-      <span>/</span>
       <li>
-        <a href="#"><img src="public/linkedin.svg" alt="">LINKEDIN</a>
+        <a href="#"><img src="linkedin.svg" alt=""><span>LINKEDIN</span></a> <p>/</p>
       </li>
-      <span>/</span>
       <li>
-        <a href="#"><img src="public/discord.svg" alt="">DISCORD</a>
+        <a href="#"><img src="discord.svg" alt=""><span>DISCORD</span></a> <p>/</p>
       </li>
-      <span>/</span>
       <li>
-        <a href="mailto:dariuspessin@gmail.com"><img src="public/email.svg" alt="">EMAIL</a>
+        <a href="mailto:dariuspessin@gmail.com"><img src="email.svg" alt=""><span>EMAIL</span></a>
       </li>
     </ul>
     <aside>
@@ -39,13 +36,31 @@
         <span>{</span>
           <p>&nbsp;name<span class="object-name">:</span> <span class="value">'Darius Pessin'</span>,</p>
           <p>&nbsp;birthday<span class="object-name">:</span> <span class="number">22<span class="object-name">/</span>02<span class="object-name">/</span>2008</span>,</p>
-          <img src="public/cyri.jpg" alt="cyri-picture" class="picture">
-          <p>&nbsp;picture<span class="object-name">:</span> <a href="public/cyri.jpg" class="url">URL(cyri.jpg)</a>,</p>
+          <img src="cyri.jpg" alt="cyri-picture" class="picture">
+          <p>&nbsp;picture<span class="object-name">:</span> <a href="cyri.jpg" class="url">URL(cyri.jpg)</a>,</p>
           <p>&nbsp;location<span class="object-name">:</span> <span class="value">'Lyon, France'</span>,</p>
           <p>&nbsp;school<span class="object-name">:</span> <a href="https://edenschool.fr">Eden School</a></p>
         <span>}</span>
       </div>
     </aside>
-  </header>
+  </main>
+  <div class="outside-check">
+    <div class="outside-cursor">
+      <input type="checkbox" class="checkbox-input" id="checkbox">
+      <label for="checkbox">
+        <span class="checkbox">
+        </span>
+      </label>
+      <label for="checkbox">NORMAL CURSOR</label>
+    </div>
+    <div class="outside-light">
+      <input type="checkbox" class="checkbox-input-light" id="checkbox-light">
+      <label for="checkbox-light">
+        <span class="checkbox-light">
+        </span>
+      </label>
+      <label for="checkbox-light">LIGHT MODE</label>
+    </div>
+  </div>
 </body>
 </html>

@@ -6,6 +6,7 @@
   box-sizing: border-box;
 }
 
+/* Styles de la page principale */
 body {
   user-select: none;
   font-family: 'Poppins', sans-serif;
@@ -15,7 +16,8 @@ body {
   padding: 40px;
 }
 
-header {
+/* Styles de la section principale */
+main {
   position: relative;
   display: flex;
   justify-content: space-between;
@@ -25,7 +27,7 @@ header {
   padding: 2vh 2vh 2vh 4vw;
   border: 1px solid white;
   color: white;
-  background-image: url('public/bg.png');
+  background-image: url('bg.png');
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -33,7 +35,8 @@ header {
   animation: lightshadow 8s infinite;
 }
 
-header::after {
+/* Effet de brillance sur la section principale */
+main::after {
   pointer-events: none;
   overflow: hidden;
   content: "";
@@ -50,6 +53,7 @@ header::after {
   filter: blur(10px);
 }
 
+/* Effet de grain sur l'arrière-plan */
 .grain-overlay {
   pointer-events: none;
   position: fixed;
@@ -63,9 +67,10 @@ header::after {
   background-repeat: repeat;
   animation: bg-animation .3s infinite;
   visibility: visible;
-  opacity: .035;
+  opacity: .050;
 }
 
+/* Texte "DESIGN & DEVELOP BY ME" */
 .outside {
   cursor: pointer;
   position: absolute;
@@ -102,26 +107,28 @@ header::after {
   font-weight: 500;
 }
 
-hgroup {
+/* Section de gauche */
+.left {
   z-index: 2;
-  cursor:context-menu;
+  cursor: context-menu;
   height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
 
-hgroup h2 {
+.left h2 {
   font-size: 50px;
   font-weight: 500;
 }
 
-hgroup p {
+.left p {
   font-family: 'Anonymous Pro';
   font-size: 22px;
   letter-spacing: 3.3px;
 }
 
+/* Section de droite */
 aside {
   display: flex;
   flex-direction: column;
@@ -132,7 +139,7 @@ aside {
   letter-spacing: 3.5px;
 }
 
-
+/* Styles du code */
 .block {
   z-index: 2;
   position: relative;
@@ -155,15 +162,17 @@ aside {
   color: #b593f9;
 }
 
+/* Liens */
 a {
   text-decoration: none;
   color: #8be9fd;
 }
 
-.name,.birthday {
+.name, .birthday {
   color: #f1fa8c;
 }
 
+/* Image */
 .picture {
   opacity: 0;
   border-radius: 10px;
@@ -200,6 +209,7 @@ h1 span {
   animation: textShine 2s ease-in-out infinite alternate;
 }
 
+/* Section des liens */
 .link {
   z-index: 2;
   position: absolute;
@@ -207,6 +217,11 @@ h1 span {
   display: flex;
   align-items: center;
   list-style-type: none;
+}
+
+.link li {
+  align-items: center;
+  display: flex;
 }
 
 .link img {
@@ -223,7 +238,7 @@ h1 span {
   align-items: center;
 }
 
-.link span {
+.link p {
   margin: 0 7px;
 }
 
@@ -245,11 +260,12 @@ h1 span {
   transform-origin: bottom left;
 }
 
+/* Curseur animé */
 .circle {
   z-index: 5;
   width: 5em;
   height: 5em;
-  background-image: url(public/cursor.png);
+  background-image: url(cursor.png);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -270,6 +286,62 @@ h1 span {
   animation: caretAnim 1s infinite;
 }
 
+/* Styles checkbox */
+.outside-check {
+  gap: 20px;
+  display: flex;
+}
+
+.outside-cursor, .outside-light {
+  margin-top: 5px;
+  font-family: 'Anonymous Pro';
+  font-weight: 600;
+  letter-spacing: 1px;
+  margin-left: 5px;
+  gap: 10px;
+  display: flex;
+  align-items: center;
+  font-size: 15px;
+  color: white;
+}
+
+.checkbox-input, .checkbox-input-light {
+  display: none;
+}
+
+.checkbox-input:checked + label .checkbox:after, .checkbox-input-light:checked + label .checkbox-light:after {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.checkbox, .checkbox-light {
+  border: 1px solid rgb(255, 255, 255);
+  border-radius: 3px;
+  width: 16px;
+  height: 16px;
+  display: inline-block;
+  position: relative;
+}
+
+.checkbox:after, .checkbox-light:after {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  width: 12px;
+  height: 12px;
+  background-color: rgb(255, 255, 255);
+  border-radius: 3px;
+  transition: 0.3s;
+}
+
+label {
+  display: flex;
+  align-items: center;
+}
+
+/* Animations */
 @keyframes rotate {
   from {
     transform: rotate(0deg);
@@ -325,4 +397,76 @@ h1 span {
   80% { transform: translate(-15%,0) }
   90% { transform: translate(10%,5%) }
   100% { transform: translate(5%,0) }
+}
+
+/* Media queries tablet */
+@media (max-width: 1025px) {
+  main {
+    flex-direction: column;
+    padding: 0;
+  }
+  .left {
+    text-align: center;
+    align-items: center;
+  }
+  aside {
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 50px;
+  }
+  .link {
+    left: 50%;
+    transform: translate(-50%);
+    bottom: 1vh;
+  }
+  .outside-cursor {
+    display: none;
+  }
+  .circle {
+    display: none;
+  }
+}
+
+/* Media queries phone */
+@media (max-width: 535px) {
+  .outside {
+    display: none;
+  }
+  .outside-light {
+    display: none;
+  }
+  body {
+    padding: 10px;
+  }
+  main {
+    justify-content: start;
+  }
+  aside {
+    font-size: 16px;
+  }
+  .left {
+    height: 50%;
+  }
+  .block {
+    padding: 10px;
+  }
+  .left h1 {
+    font-size: 75px;
+  }
+  .left p {
+    font-size: 16px;
+  }
+  .link {
+    font-size: 12px;
+    bottom: 2vh;
+  }
+  .link img {
+    width: 30px;
+  }
+  .link span {
+    display: none;
+  }
+  .link p {
+    margin: 0 14px;
+  }
 }

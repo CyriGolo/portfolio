@@ -18,6 +18,14 @@ document.addEventListener("DOMContentLoaded", function() {
     url.addEventListener("mouseout", function() {
         picture.style.opacity = "0%";
     });
+    const checkbox = document.querySelector('#checkbox');
+    checkbox.addEventListener('click', ()=>{
+        if(checkbox.checked) {
+            circle.style.display = "none";
+        } else {
+            circle.style.display = "block"
+        }
+    })
 });
 
 function moveCircle(e) {
@@ -91,3 +99,4 @@ function deleteTyping(speed){
         }
     }, speed);
 }
+
