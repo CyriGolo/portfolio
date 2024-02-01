@@ -428,6 +428,9 @@ label {
   .circle {
     display: none;
   }
+  .grain-overlay {
+    opacity: .020;
+  }
 }
 
 /* Media queries phone */
