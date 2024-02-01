@@ -62,8 +62,8 @@ header::after {
   background: transparent url('https://sybrax.dev/noise.png') repeat 0 0;
   background-repeat: repeat;
   animation: bg-animation .3s infinite;
-  opacity: .035;
   visibility: visible;
+  opacity: .035;
 }
 
 .outside {
@@ -122,14 +122,16 @@ hgroup p {
   letter-spacing: 3.3px;
 }
 
-article {
+aside {
   display: flex;
   flex-direction: column;
+  align-items: end;
   justify-content: end;
   font-family: 'Anonymous Pro', monospace;
   font-size: 22px;
   letter-spacing: 3.5px;
 }
+
 
 .block {
   z-index: 2;
@@ -198,7 +200,7 @@ h1 span {
   animation: textShine 2s ease-in-out infinite alternate;
 }
 
-ul {
+.link {
   z-index: 2;
   position: absolute;
   bottom: 2vh;
@@ -207,11 +209,11 @@ ul {
   list-style-type: none;
 }
 
-ul img {
+.link img {
   width: 20px;
 }
 
-ul a {
+.link a {
   position: relative;
   font-family: 'Anonymous Pro';
   letter-spacing: 1px;
@@ -221,30 +223,30 @@ ul a {
   align-items: center;
 }
 
-ul span {
+.link span {
   margin: 0 7px;
 }
 
-ul a::after {
+.link a::after {
   content: '';
   position: absolute;
   width: 99%;
   transform: scaleX(0);
   height: 2px;
-  bottom: 0;
+  bottom: -5px;
   left: 0;
   background-color: #ffffff;
   transform-origin: bottom right;
   transition: transform 0.25s ease-out;
 }
 
-ul a:hover::after {
+.link a:hover::after {
   transform: scaleX(1);
   transform-origin: bottom left;
 }
 
 .circle {
-  z-index: 99;
+  z-index: 5;
   width: 5em;
   height: 5em;
   background-image: url(public/cursor.png);
@@ -277,7 +279,7 @@ ul a:hover::after {
   }
 }
 
-/* @keyframes caretAnim {
+@keyframes caretAnim {
   0%, 100% {
     border-right: 2px white solid;
   }
@@ -323,4 +325,4 @@ ul a:hover::after {
   80% { transform: translate(-15%,0) }
   90% { transform: translate(10%,5%) }
   100% { transform: translate(5%,0) }
-} */
+}
