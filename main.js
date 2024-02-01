@@ -69,19 +69,19 @@ function handleWheel(e) {
     const now = performance.now();
     const deltaY = e.deltaY !== undefined ? e.deltaY : -e.wheelDeltaY;
     let scrollDirection = deltaY > 0 ? 1 : -1;
-    animationDuration = calculateAnimationDuration(scrollDirection);
+    animationDuration = calculateAnimationDuration(scrollDirection, e);
     circle.style.animationDuration = animationDuration + "ms";
     isScrolling = true;
     lastScrollTime = now;
 }
 
 // Calcul de la durée d'animation en fonction de la direction du défilement
-function calculateAnimationDuration(scrollDirection) {
+function calculateAnimationDuration(scrollDirection, e) {
     let newDuration = animationDuration;
     if (scrollDirection === 1) {
         newDuration *= 0.9;
     } else if (scrollDirection === -1) {
-        newDuration = Math.max(newDuration * (1 + Math.abs(deltaY) / 1000), 2000);
+        newDuration = Math.max(newDuration * (1 + Math.abs(e.deltaY) / 1000), 2000);
     }
     return Math.min(Math.max(newDuration, 2000), 8000);
 }
