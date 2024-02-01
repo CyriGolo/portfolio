@@ -1,3 +1,8 @@
+let sentence =
+["[A young french developer]", 
+"[HTML, JS, CSS]",
+"[Tailwind, React, Vue]"];
+
 document.addEventListener("DOMContentLoaded", function() {
     setTimeout(() => {
         typing("[A young french developer]", 100)
@@ -16,46 +21,31 @@ let circle = document.querySelector('.circle');
 circle.style.animationDuration = '8s';
 
 function moveCircle(e) {
-    let posX = (e.pageX - 35)  + 'px';
-    let posY = (e.pageY - 35) + 'px';
+    let posX = (e.pageX - 30)  + 'px';
+    let posY = (e.pageY - 25) + 'px';
     circle.style.left = posX;
     circle.style.top = posY;
 }
 
-let animationDuration = 8000; // Durée d'animation initiale de 8 secondes
+let animationDuration = 8000;
 let lastScrollTime = 0;
 let isScrolling = false;
 
 document.addEventListener('wheel', (e) => {
     const now = performance.now();
     const deltaY = e.deltaY !== undefined ? e.deltaY : -e.wheelDeltaY;
-
-    let scrollDirection = deltaY > 0 ? 1 : -1; // 1 pour vers le bas, -1 pour vers le haut
-
-    if (scrollDirection === 1) { // Scroll vers le bas
-        animationDuration *= 0.9; // Réduction lente
-    } else if (scrollDirection === -1) { // Scroll vers le haut
-        animationDuration = Math.max(animationDuration * (1 + Math.abs(deltaY) / 1000), 2000); // Augmentation progressive en fonction de la quantité de défilement, minimum de 2 secondes
+    let scrollDirection = deltaY > 0 ? 1 : -1;
+    if (scrollDirection === 1) {
+        animationDuration *= 0.9;
+    } else if (scrollDirection === -1) {
+        animationDuration = Math.max(animationDuration * (1 + Math.abs(deltaY) / 1000), 2000);
     }
-
-    animationDuration = Math.min(animationDuration, 8000); // Maximum de 8 secondes
-    animationDuration = Math.max(animationDuration, 2000); // Minimum de 2 secondes
-
+    animationDuration = Math.min(animationDuration, 8000);
+    animationDuration = Math.max(animationDuration, 2000);
     circle.style.animationDuration = animationDuration + "ms";
-
     isScrolling = true;
     lastScrollTime = now;
 });
-
-
-
-
-
-
-
-
-
-
 
 window.addEventListener('mousemove', moveCircle);
 
@@ -79,6 +69,8 @@ function typing(txt, speed){
     }, speed);
 }
 
+let indexSentence = 1;
+
 function deleteTyping(speed){
     let i = desc.innerHTML.length;
     let del = setInterval(() => {
@@ -87,7 +79,11 @@ function deleteTyping(speed){
             desc.classList.add('anime')
             setTimeout(() => {
                 desc.classList.remove('anime')
-                typing("[A young french developer]", 100)
+                if(indexSentence == sentence.length) {
+                    indexSentence = 0;
+                }
+                typing(sentence[indexSentence], 100)
+                indexSentence++
             }, 2000);
         } else {
             desc.innerHTML = desc.innerHTML.slice(0, -1);
