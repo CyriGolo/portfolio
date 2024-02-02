@@ -2,6 +2,7 @@
 let desc;
 let circle;
 let picture;
+let picOpen = false;
 const sentence = [
     "[A young french developer]", 
     "[HTML, JS, CSS, SCSS]",
@@ -36,6 +37,15 @@ function initEvents() {
     if (url) {
         url.addEventListener("mouseover", handleMouseOver);
         url.addEventListener("mouseout", handleMouseOut);
+        url.addEventListener("click", ()=>{
+            if(picOpen == false) {
+                picture.style.opacity = "100%"; 
+                picOpen = true
+            } else {
+                picture.style.opacity = "0%"; 
+                picOpen = false;
+            };
+        })
     }
     if (checkbox) {
         checkbox.addEventListener('click', handleCheckboxClick);
@@ -46,13 +56,13 @@ function initEvents() {
 
 // Gestion de l'événement mouseover pour afficher l'image de profil
 function handleMouseOver() {
-    if (!picture) return;
+    if (!picture || picOpen == true) return;
     picture.style.opacity = "100%";
 }
 
 // Gestion de l'événement mouseout pour masquer l'image de profil
 function handleMouseOut() {
-    if (!picture) return;
+    if (!picture || picOpen == true) return;
     picture.style.opacity = "0%";
 }
 
