@@ -6,6 +6,11 @@
   box-sizing: border-box;
 }
 
+html {
+  font-size: .625em; /* fallback IE8+ */
+  font-size: calc(1em * .625); /* IE9-IE11 math fixing. See http://bit.ly/1g4X0bX */
+}
+
 /* Styles de la page principale */
 body {
   user-select: none;
@@ -14,6 +19,7 @@ body {
   height: 100dvh;
   overflow: hidden;
   padding: 40px;
+  font-size: 1.4em; /* base font-size is equivalent "14px" */
 }
 
 /* Styles de la section principale */
@@ -24,7 +30,7 @@ main {
   box-shadow: rgba(255, 255, 255, 0.093) 0px 0px 50px 0px inset, rgba(255, 255, 255, 0.137) 0px 18px 36px -18px inset;
   height: 100%;
   width: 100%;
-  padding: 2dvh 2dvh 2dvh 4vw;
+  padding: 2dvh 2dvh 2dvh 4dvw;
   border: 1px solid white;
   color: white;
   background-image: url('./public/bg.png');
@@ -78,7 +84,7 @@ main::after {
   bottom: 150px;
   transform: rotate(270deg);
   color: white;
-  font-size: 14px;
+  font-size: 1.4rem;
   letter-spacing: 3px;
   font-weight: 600;
 }
@@ -102,7 +108,7 @@ main::after {
 }
 
 .outside span {
-  font-size: 15px;
+  font-size: 1.5rem;
   font-family: 'Anonymous Pro';
   font-weight: 500;
 }
@@ -118,13 +124,13 @@ main::after {
 }
 
 .left h2 {
-  font-size: 50px;
+  font-size: 5rem;
   font-weight: 500;
 }
 
 .left p {
   font-family: 'Anonymous Pro';
-  font-size: 22px;
+  font-size: 2.2rem;
   letter-spacing: 3.3px;
 }
 
@@ -135,7 +141,7 @@ aside {
   align-items: end;
   justify-content: end;
   font-family: 'Anonymous Pro', monospace;
-  font-size: 22px;
+  font-size: 2.2rem;
   letter-spacing: 3.5px;
 }
 
@@ -190,7 +196,7 @@ a {
 }
 
 h1 {
-  font-size: 90px;
+  font-size: 9rem;
   letter-spacing: 2px;
 }
 
@@ -304,7 +310,7 @@ h1 span {
   gap: 10px;
   display: flex;
   align-items: center;
-  font-size: 15px;
+  font-size: 1.5rem;
   color: white;
 }
 
@@ -448,7 +454,7 @@ label {
     justify-content: start;
   }
   aside {
-    font-size: 16px;
+    font-size: 1.6rem;
   }
   .left {
     height: 50%;
@@ -457,13 +463,13 @@ label {
     padding: 10px;
   }
   .left h1 {
-    font-size: 75px;
+    font-size: 7.5rem;
   }
   .left p {
-    font-size: 16px;
+    font-size: 1.6rem;
   }
   .link {
-    font-size: 12px;
+    font-size: 1.2rem;
     bottom: 2dvh;
   }
   .link img {
