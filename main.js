@@ -4,7 +4,7 @@ let circle;
 let picture;
 const sentence = [
     "[A young french developer]", 
-    "[HTML, JS, CSS]",
+    "[HTML, JS, CSS, SCSS]",
     "[Tailwind, React, Vue]"
 ];
 let indexSentence = 0;
