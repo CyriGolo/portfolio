@@ -425,6 +425,7 @@ label {
     align-items: center;
   }
   aside {
+    pointer-events: none;
     align-items: center;
     justify-content: center;
     margin-bottom: 50px;

@@ -1,4 +1,4 @@
-// Variables globales
+// Global Variables
 let desc;
 let circle;
 let picture;
@@ -13,46 +13,37 @@ let animationDuration = 8000;
 let lastScrollTime = 0;
 let isScrolling = false;
 
-// Fonction principale d'initialisation
+// Main Initialization Function
 document.addEventListener("DOMContentLoaded", function() {
     desc = document.querySelector('#desc');
     circle = document.querySelector('.circle');
     picture = document.querySelector('.picture');
-    if (!desc || !circle) return; // Vérification de l'existence des éléments
+    if (!desc || !circle) return; // Checking the existence of elements
 
-    // Initialisation des événements
+    // Initializing Events
     initEvents();
 
-    // Typage initial avec un délai de 2 secondes
+    // Initial typing with a delay of 2 seconds
     setTimeout(() => {
         typing(sentence[indexSentence], 100);
     }, 2000);
 });
 
-// Initialisation des événements
+// Event Initialization
 function initEvents() {
     const url = document.querySelector('.url');
     const checkbox = document.querySelector('#checkbox');
-
     if (url) {
         url.addEventListener("mouseover", handleMouseOver);
         url.addEventListener("mouseout", handleMouseOut);
-        window.onclick = function (event) {
-            if (event.target.contains(url) && event.target !== url) {
-                picture.style.opacity = "0";
-                picOpen = false;
-            } else {
-                if(!picOpen){
-                    picture.style.opacity = "100%";
-                    picOpen = true;
-                } else {
-                    picture.style.opacity = "0";
-                    picOpen = false;
-                }
-            }
-        }
+        url.addEventListener('click', (event) => {
+            event.stopPropagation();
+            hide('on');
+        });
     }
-
+    document.body.addEventListener('click', () => {
+        hide('out');
+    });
     if (checkbox) {
         checkbox.addEventListener('click', handleCheckboxClick);
     }
@@ -60,27 +51,43 @@ function initEvents() {
     window.addEventListener('mousemove', moveCircle);
 }
 
+// Hide picture on click
+function hide(statut) {
+    if (statut == "on") {
+        console.log("on");
+        if (!picOpen) {
+            picture.style.opacity = "100%";
+            picOpen = true;
+        } else {
+            picture.style.opacity = "0";
+            picOpen = false;
+        }
+    } else if (picOpen) {
+        picture.style.opacity = "0";
+        picOpen = false;
+    }
+}
 
-// Gestion de l'événement mouseover pour afficher l'image de profil
+// Handling mouseover event to display the profile picture
 function handleMouseOver() {
     if (!picture || picOpen == true) return;
     picture.style.opacity = "100%";
 }
 
-// Gestion de l'événement mouseout pour masquer l'image de profil
+// Handling mouseout event to hide the profile picture
 function handleMouseOut() {
     if (!picture || picOpen == true) return;
     picture.style.opacity = "0%";
 }
 
-// Gestion de l'événement click sur la case à cocher pour afficher ou masquer le curseur animé
+// Handling click event on checkbox to show or hide the animated cursor
 function handleCheckboxClick() {
     if (!circle) return;
     const checkbox = document.querySelector('#checkbox');
     circle.style.display = checkbox.checked ? "none" : "block";
 }
 
-// Gestion de l'événement de défilement de la souris pour ajuster la durée d'animation
+// Handling mouse wheel scroll event to adjust animation duration
 function handleWheel(e) {
     if (!circle) return;
     const now = performance.now();
@@ -92,7 +99,7 @@ function handleWheel(e) {
     lastScrollTime = now;
 }
 
-// Calcul de la durée d'animation en fonction de la direction du défilement
+// Calculating animation duration based on scroll direction
 function calculateAnimationDuration(scrollDirection, e) {
     let newDuration = animationDuration;
     if (scrollDirection === 1) {
@@ -103,7 +110,7 @@ function calculateAnimationDuration(scrollDirection, e) {
     return Math.min(Math.max(newDuration, 2000), 8000);
 }
 
-// Gestion de l'événement de déplacement de la souris pour déplacer le curseur animé
+// Handling mouse move event to move the animated cursor
 function moveCircle(e) {
     if (!circle) return;
     let posX = (e.pageX - 30) + 'px';
@@ -112,7 +119,7 @@ function moveCircle(e) {
     circle.style.top = posY;
 }
 
-// Fonction pour afficher le texte avec effet de dactylographie
+// Function to display text with typing effect
 function typing(txt, speed) {
     let i = 0;
     desc.classList.remove('anime');
@@ -131,7 +138,7 @@ function typing(txt, speed) {
     }, speed);
 }
 
-// Fonction pour supprimer le texte avec effet de dactylographie
+// Function to delete text with typing effect
 function deleteTyping(speed) {
     let i = desc.innerHTML.length;
     let del = setInterval(() => {
