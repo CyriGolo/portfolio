@@ -54,7 +54,6 @@ function initEvents() {
 // Hide picture on click
 function hide(statut) {
     if (statut == "on") {
-        console.log("on");
         if (!picOpen) {
             picture.style.opacity = "100%";
             picOpen = true;
