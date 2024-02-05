@@ -37,22 +37,29 @@ function initEvents() {
     if (url) {
         url.addEventListener("mouseover", handleMouseOver);
         url.addEventListener("mouseout", handleMouseOut);
-        url.addEventListener("click", ()=>{
-            if(picOpen == false) {
-                picture.style.opacity = "100%"; 
-                picOpen = true
-            } else {
-                picture.style.opacity = "0%"; 
+        window.onclick = function (event) {
+            if (event.target.contains(url) && event.target !== url) {
+                picture.style.opacity = "0";
                 picOpen = false;
-            };
-        })
+            } else {
+                if(!picOpen){
+                    picture.style.opacity = "100%";
+                    picOpen = true;
+                } else {
+                    picture.style.opacity = "0";
+                    picOpen = false;
+                }
+            }
+        }
     }
+
     if (checkbox) {
         checkbox.addEventListener('click', handleCheckboxClick);
     }
     document.addEventListener('wheel', handleWheel);
     window.addEventListener('mousemove', moveCircle);
 }
+
 
 // Gestion de l'événement mouseover pour afficher l'image de profil
 function handleMouseOver() {
