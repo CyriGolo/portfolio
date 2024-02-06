@@ -1,6 +1,6 @@
 ## How To Use 🔧
 
-[From url](https://cyrigolo.github.io/cv/) / https://cyrigolo.github.io/cv/
+From url: https://cyrigolo.github.io/cv/
 
 From your command line:
 
