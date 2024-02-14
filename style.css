@@ -295,6 +295,8 @@ h1 span {
   width: max-content;
   height: 22px;
   border-right: 2px white solid;
+  display: flex;
+  align-items: center;
 }
 
 .anime {
@@ -307,7 +309,7 @@ h1 span {
   display: flex;
 }
 
-.outside-cursor, .outside-light {
+.outside-cursor {
   margin-top: 5px;
   font-family: 'Anonymous Pro';
   font-weight: 600;
@@ -320,15 +322,15 @@ h1 span {
   color: white;
 }
 
-.checkbox-input, .checkbox-input-light {
+.checkbox-input {
   display: none;
 }
 
-.checkbox-input:checked + label .checkbox:after, .checkbox-input-light:checked + label .checkbox-light:after {
+.checkbox-input:checked + label .checkbox:after {
   transform: translate(-50%, -50%) scale(1);
 }
 
-.checkbox, .checkbox-light {
+.checkbox {
   border: 1px solid rgb(255, 255, 255);
   border-radius: 3px;
   width: 16px;
@@ -337,7 +339,7 @@ h1 span {
   position: relative;
 }
 
-.checkbox:after, .checkbox-light:after {
+.checkbox:after {
   content: '';
   display: block;
   position: absolute;
@@ -450,9 +452,6 @@ label {
   .outside {
     display: none;
   }
-  .outside-light {
-    display: none;
-  }
   body {
     padding: 10px;
   }
@@ -472,7 +471,7 @@ label {
     font-size: 7.5rem;
   }
   .left p {
-    font-size: 1.6rem;
+    font-size: 1.4rem;
   }
   .link {
     font-size: 1.2rem;
