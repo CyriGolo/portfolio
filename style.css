@@ -73,7 +73,7 @@ main::after {
   background-repeat: repeat;
   animation: bg-animation .3s infinite;
   visibility: visible;
-  opacity: .050;
+  opacity: .030;
 }
 
 /* Texte "DESIGN & DEVELOP BY ME" */
