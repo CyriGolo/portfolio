@@ -49,6 +49,22 @@ function initEvents() {
     }
     document.addEventListener('wheel', handleWheel);
     window.addEventListener('mousemove', moveCircle);
+
+
+    // Display current age
+    const birthday = new Date("02/22/2008");   
+    const month_diff = Date.now() - birthday.getTime();  
+    const age_dt = new Date(month_diff);   
+    const year = age_dt.getUTCFullYear();  
+    const age = Math.abs(year - 1970);
+
+    document.querySelector('#age').textContent = age;
+
+
+    // Display discord username
+    document.querySelector('#discord').addEventListener('click',()=>{
+        alert('Username : cyri__');
+    })
 }
 
 // Hide picture on click
